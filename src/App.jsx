@@ -1,7 +1,11 @@
 // React:
 import React from "react";
+// Router:
+import { Switch, Route } from "react-router-dom";
 // Comps:
 import NewForm from "./NewForm";
+import Error from "./Error";
+import Landing from "./Landing";
 
 export const TYPES = {
   textField: `textField`,
@@ -112,21 +116,21 @@ const App = () => {
     },
   };
 
-  // const routes = (
-  //   <Switch>
-  //     <Route path="/" exact>
-  //       <Landing />
-  //     </Route>
-  //     <Route path="/form" exact>
-  //       <NewForm template={initTemplate} />
-  //     </Route>
-  //     <Route>
-  //       <Error />
-  //     </Route>
-  //   </Switch>
-  // );
-  return <NewForm template={initTemplate} />;
-  // return routes;
+  const routes = (
+    <Switch>
+      <Route path="/" exact>
+        <Landing />
+      </Route>
+      <Route path="/form" exact>
+        <NewForm template={initTemplate} />
+      </Route>
+      <Route>
+        <Error />
+      </Route>
+    </Switch>
+  );
+
+  return routes;
 };
 
 export default App;

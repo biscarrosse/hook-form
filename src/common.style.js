@@ -2,8 +2,10 @@
 import styled from "styled-components";
 
 const P = styled.p`
-  margin: 0;
+  margin: ${(props) => (props.margin ? `${props.margin}` : `0`)};
   padding: 0;
+  text-align: ${(props) => (props.center ? `center` : `inherit`)};
+  font-weight: ${(props) => (props.strong ? `700` : `inherit`)};
 `;
 
 const H1 = styled.h2`
@@ -32,6 +34,14 @@ const Input = styled.input`
 
 const Flex = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  /* @media (max-width: 500px) {
+    flex-direction: ${(props) => {
+    if (props.landing) {
+      return `column`;
+    }
+  }};
+  } */
 `;
 
 const Left = styled.div`
